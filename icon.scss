@@ -1,0 +1,40 @@
+/** icon 设置 **/
+.icon {
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  top: 50%;
+    transform: translateY(-50%);
+
+  /** icon 点击移动 **/ 
+  &.icon-enable-click:active{
+    transform: translate(1px, 1px);
+  }
+
+  /** icon 大小 **/
+  &.icon-large {
+    vertical-align: middle;
+    min-height: 3em;
+    height: auto;
+    min-width: 3em;
+  }
+  &.icon-middle {
+    vertical-align: text-bottom;
+    min-height: 1em;
+    height: auto;
+    min-width: 1em;
+  }
+  &.icon-small {
+    vertical-align: middle;
+    min-height: 12px;
+    height: auto;
+    min-width: 0.8em;
+  }
+
+  /*
+  * icon-{$图标}
+  */
+}

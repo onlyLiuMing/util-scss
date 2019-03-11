@@ -1,0 +1,417 @@
+/*** css画部分icon ***/
+
+/*********************** 箭头 (***************************/
+
+// (实心)箭头 .has-icon-arrow-left,.has-icon-arrow-right
+@each $type in left, right {
+  .has-icon-arrow-#{$type} {
+    width: 1.2em;
+    height: 0.2em;
+    display: inline-block;
+    position: relative;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    // font-size: 20px;
+    background-color: $default-color;
+    border-radius: 0.2em;
+    vertical-align: middle;
+    transform: translateY(-1px);
+    &::after {
+      content: "";
+      width: 0;
+      height: 0;
+      position: absolute;
+      #{$type}: -50%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top: 0.5em solid transparent;
+      border-bottom: 0.5em solid transparent;
+      border-#{$type}: 0.5em solid transparent;
+      @if $type == right {
+        border-left: 0.5em solid $default-color;
+      } @else {
+        border-right: 0.5em solid $default-color;
+      }
+    }
+  }
+}
+
+// 空心箭头 .has-icon-arrow2-left,.has-icon-arrow2-right
+@each $type in left, right {
+  .has-icon-arrow2-#{$type} {
+    width: 1em;
+    height: 0.2em;
+    display: inline-block;
+    position: relative;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    // font-size: 20px;
+    background-color: $default-color;
+    vertical-align: middle;
+    transform: translateY(-1px);
+    &::after {
+      content: "";
+      display: block;
+      width: 1em;
+      height: 1em;
+      position: absolute;
+      #{$type}: -10%;
+      background-color: transparent;
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+      @if $type == right {
+        border-bottom: 0.2em solid $default-color;
+        border-top: 0.2em solid transparent;
+        border-right: 0.2em solid $default-color;
+        border-left: 0.2em solid transparent;
+      } @else {
+        border-top: 0.2em solid $default-color;
+        border-bottom: 0.2em solid transparent;
+        border-left: 0.2em solid $default-color;
+        border-right: 0.2em solid transparent;
+      }
+    }
+  }
+}
+
+// 圆角空心箭头 .has-icon-arrow3-left,.has-icon-arrow3-right
+@each $type in left, right {
+  .has-icon-arrow3-#{$type} {
+    width: 1em;
+    height: 0.2em;
+    display: inline-block;
+    position: relative;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    // font-size: 20px;
+    background-color: $default-color;
+    vertical-align: middle;
+    border-radius: 0.2em;
+    transform: translateY(-1px);
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      width: 0.8em;
+      height: 0.2em;
+      position: absolute;
+      background-color: $default-color;
+      border-radius: 0.2em;
+      #{$type}: -50%;
+    }
+    &::before {
+      top: calc(-50% - 0.1em);
+    }
+    &::after {
+      bottom: calc(-50% - 0.1em);
+    }
+    @if $type == right {
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    } @else {
+      &::before {
+        transform: rotate(-45deg);
+      }
+      &::after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+// 圆角空心箭头 .has-icon-arrow4-left,.has-icon-arrow4-right
+@each $type in left, right {
+  .has-icon-arrow4-#{$type} {
+    width: 1em;
+    height: 0.2em;
+    display: inline-block;
+    position: relative;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    // font-size: 20px;
+    background-color: $default-color;
+    vertical-align: middle;
+    border-radius: 0.2em;
+    transform: translateY(-1px);
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      width: 0.8em;
+      height: 0.2em;
+      position: absolute;
+      background-color: $default-color;
+      border-radius: 0.2em;
+      #{$type}: -20%;
+    }
+    &::before {
+      top: calc(-50% - 0.1em);
+    }
+    &::after {
+      bottom: calc(-50% - 0.1em);
+    }
+    @if $type == right {
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+    } @else {
+      &::before {
+        transform: rotate(-45deg);
+      }
+      &::after {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+/*********************** end of 箭头 (***************************/
+
+/*********************** 加号 ***************************/
+// 加号-细
+.has-icon-add {
+  $WIDTH: 0.1em;
+  $HEIGHT: 1.2em;
+  height: 0;
+  width: 0;
+  padding-right: $HEIGHT/2;
+  padding-left: $HEIGHT/2;
+  padding-top: $HEIGHT/2;
+  padding-bottom: $HEIGHT/2;
+  position: relative;
+  color: $main-color;
+  vertical-align: middle;
+  transform: translateY(-1px);
+  &::after,
+  &::before {
+    content: "";
+    width: $HEIGHT;
+    height: $WIDTH;
+    position: absolute;
+    left: 0;
+    border-radius: $WIDTH;
+    background-color: currentColor;
+    top: calc(50% - #{$WIDTH});
+  }
+  &::after {
+    transform: rotate(90deg);
+  }
+  &::before {
+  }
+}
+
+// 加号-粗
+.has-icon-add-width {
+  $WIDTH: 0.1em;
+  $HEIGHT: 1.2em;
+  height: 0;
+  width: 0;
+  padding-right: $HEIGHT/2;
+  padding-left: $HEIGHT/2;
+  padding-top: $HEIGHT/2;
+  padding-bottom: $HEIGHT/2;
+  position: relative;
+  color: $main-color;
+  vertical-align: middle;
+  &::after,
+  &::before {
+    content: "";
+    width: $HEIGHT;
+    height: $WIDTH;
+    position: absolute;
+    left: 0;
+    border-radius: $WIDTH;
+    background-color: currentColor;
+    top: calc(50% - #{$WIDTH});
+  }
+  &::after {
+    transform: rotate(90deg);
+  }
+  &::before {
+    // transform: rotate(-45deg);
+  }
+}
+/*********************** end of 加号 ***************************/
+
+/*********************** 关闭 ***************************/
+// 蓝色 差号
+.has-icon-close {
+  $WIDTH: 0.2em;
+  $HEIGHT: 1.3em;
+  height: 0;
+  width: 0;
+  padding-right: $HEIGHT/2;
+  padding-left: $HEIGHT/2;
+  padding-top: $HEIGHT/2;
+  padding-bottom: $HEIGHT/2;
+  position: relative;
+  color: $main-color;
+  &::after,
+  &::before {
+    content: "";
+    width: $HEIGHT;
+    height: $WIDTH;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border-radius: $WIDTH;
+    background-color: currentColor;
+  }
+  &::after {
+    transform: rotate(45deg);
+  }
+  &::before {
+    transform: rotate(-45deg);
+  }
+}
+
+// 圆圈 差号 (白色字体，颜色背景)
+.has-icon-close-2 {
+  $WIDTH: 1em;
+  $LINE-WIDTH: $WIDTH * 0.2;
+  $LINE-HEIGHT: $WIDTH * 0.8;
+  display: block;
+  height: $WIDTH;
+  width: $WIDTH;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  background-color: currentColor;
+  border-radius: 50%;
+  &::after,
+  &::before {
+    content: "";
+    width: $LINE-HEIGHT;
+    height: $LINE-WIDTH;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    // transform: translate(-50%,-50%);
+    border-radius: $LINE-HEIGHT;
+    background-color: white;
+  }
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+// 圆圈 差号 (颜色字体，白色背景)
+.has-icon-close-3 {
+  $WIDTH: 1em;
+  // $LINE-WIDTH: $WIDTH * 0.2;
+  $LINE-WIDTH: 2px;
+  $LINE-HEIGHT: $WIDTH * 0.9;
+  display: block;
+  height: $WIDTH;
+  width: $WIDTH;
+  padding: $WIDTH * 0.5;
+  margin: 0;
+  position: relative;
+  background-color: transparent;
+  border-color: currentColor;
+  border-width: $LINE-WIDTH;
+  border-style: solid;
+  border-radius: 50%;
+  &::after,
+  &::before {
+    content: "";
+    width: $LINE-HEIGHT;
+    height: $LINE-WIDTH;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    // transform: translate(-50%,-50%);
+    border-radius: $LINE-HEIGHT;
+    background-color: currentColor;
+  }
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+/*********************** end of 关闭 ***************************/
+
+/*********************** 对号 ***************************/
+.has-icon-success {
+  $WIDTH: 0.2em;
+  $HEIGHT: 1em;
+  height: 0;
+  width: 0;
+  padding-right: $HEIGHT;
+  padding-left: $HEIGHT;
+  padding-top: $HEIGHT/2;
+  padding-bottom: $HEIGHT/2;
+  position: relative;
+  color: $main-color;
+  &::after,
+  &::before {
+    content: "";
+    height: $WIDTH;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border-radius: $WIDTH * 2;
+    background-color: currentColor;
+  }
+  &::after {
+    width: $HEIGHT * 1.5;
+    transform: translateX($HEIGHT/2.8) rotate(-45deg);
+  }
+  &::before {
+    width: $HEIGHT * 0.8;
+    transform: translateY($WIDTH/1.2) rotate(45deg);
+  }
+}
+/*********************** end of 关闭 ***************************/
+
+/*********************** 信息（三横岗） ***************************/
+.has-icon-info {
+  $WIDTH: 0.2em;
+  $HEIGHT: 1.3em;
+  transform: translateY(-$WIDTH);
+
+  &,
+  &::after,
+  &::before {
+    display: inline-block;
+    height: $WIDTH;
+    width: $HEIGHT;
+    position: relative;
+    background-color: currentColor;
+  }
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+  }
+  &::after {
+    transform: translateY(-$WIDTH * 3);
+  }
+  &::before {
+    transform: translateY($WIDTH * 2);
+  }
+}
+/*********************** end of 信息（三横岗） ***************************/
